@@ -17,7 +17,14 @@ class SingleBook extends Component {
           style={{ borderWidth: 2, borderStyle: "solid", borderColor: this.state.selected ? "red" : "" }}
         >
           {/* mi salvo lo stato opposto di quello che trova, con !this.state.selected  */}
-          <Card.Img variant="top" src={this.props.book.img} onClick={() => this.setState({ selected: !this.state.selected })} />
+          <Card.Img
+            variant="top"
+            src={this.props.book.img}
+            onClick={() => {
+              this.setState({ selected: !this.state.selected });
+              this.props.changeAsin(this.props.book.asin);
+            }}
+          />
           <Card.Body variant="secondary">
             <Card.Title>{this.props.book.title} </Card.Title>
             <Card.Text>{this.props.book.category}</Card.Text>

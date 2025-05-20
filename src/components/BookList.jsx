@@ -6,7 +6,9 @@ import CommentArea from "./CommentArea";
 class BookList extends Component {
   state = {
     searchQuery: "",
+    selectedBookAsin: "",
   };
+  changeAsin = (asin) => this.setState({ selectedBookAsin: asin });
 
   render() {
     return (
@@ -27,12 +29,12 @@ class BookList extends Component {
               {this.props.genre
                 .filter((book) => book.title.toLowerCase().includes(this.state.searchQuery.toLowerCase()))
                 .map((book) => (
-                  <SingleBook key={book.asin} book={book} />
+                  <SingleBook key={book.asin} book={book} changeAsin={this.changeAsin} />
                 ))}
             </Row>{" "}
           </Col>
           <Col md={4}>
-            <CommentArea id={""} />
+            <CommentArea id={this.state.selectedBookAsin} />
           </Col>{" "}
         </Row>
       </Container>

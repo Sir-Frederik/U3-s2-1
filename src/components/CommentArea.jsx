@@ -35,7 +35,7 @@ class CommentArea extends Component {
             {"  "}
           </>
         ) : (
-          <Alert variant="light"> Clicca una card per viasualizzare i commenti</Alert>
+          <Alert variant="light"> Clicca una card per visualizzare i commenti</Alert>
         )}
       </div>
     );
