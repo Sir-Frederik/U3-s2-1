@@ -22,7 +22,7 @@ class SingleBook extends Component {
             src={this.props.book.img}
             onClick={() => {
               this.setState({ selected: !this.state.selected });
-              this.props.changeAsin(this.props.book.asin);
+              this.props.changeAsin(this.props.book.asin); //in questo punto io modifico lo stato change Asin passato come prop da Booklist
             }}
           />
           <Card.Body variant="secondary">

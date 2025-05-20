@@ -21,10 +21,17 @@ class CommentArea extends Component {
       // scritto comments una sola volta xkè omonime. altrimenti:" comments: comments"
     }
   };
-
+  //cancello percè non deve più avviarsi ogni volta in automatico, ma quando lo stato cambia:
   /*   componentDidMount() {
     this.fetchComments();
   } */
+  componentDidUpdate(prevProps, prevState) {
+    console.log("si è aggiornato");
+    if (prevProps.id !== this.props.id) {
+      console.log("id cambiato");
+      this.fetchComments();
+    }
+  }
   render() {
     return (
       <div>
