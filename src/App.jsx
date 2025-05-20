@@ -9,7 +9,7 @@ import history from "./data/history.json";
 import romance from "./data/romance.json";
 import horror from "./data/horror.json";
 import { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
 // import BookList from "./components/AllTheBooks";
 
@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <>
         <MyNav brandName="Libreria Alì BlaBla"></MyNav>
-        <div className=" container d-flex gap-1 my-3 ">
+        <Container fluid className=" d-flex gap-1 my-3 ">
           <Button variant="primary" onClick={() => this.setState({ collection: scifi })}>
             Scifi
           </Button>
@@ -37,7 +37,7 @@ class App extends Component {
           <Button variant="warning" onClick={() => this.setState({ collection: romance })}>
             Romance
           </Button>
-        </div>
+        </Container>
         <BookList genre={this.state.collection} />
         <Footer />
       </>

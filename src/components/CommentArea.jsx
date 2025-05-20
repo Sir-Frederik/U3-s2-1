@@ -1,10 +1,12 @@
 import { Component } from "react";
 import CommentsList from "./CommentsList";
+import { Alert } from "react-bootstrap";
 
 class CommentArea extends Component {
   state = {
     comments: [],
   };
+
   fetchComments = async () => {
     const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + this.props.id, {
       headers: {
@@ -20,14 +22,21 @@ class CommentArea extends Component {
     }
   };
 
-  componentDidMount() {
+  /*   componentDidMount() {
     this.fetchComments();
-  }
+  } */
   render() {
     return (
       <div>
         <h6 className="mt-2">Commenti : </h6>
-        <CommentsList comments={this.state.comments} />
+        {this.props.id ? (
+          <>
+            <CommentsList comments={this.state.comments} />
+            {"  "}
+          </>
+        ) : (
+          <Alert variant="light"> Clicca una card per viasualizzare i commenti</Alert>
+        )}
       </div>
     );
   }
